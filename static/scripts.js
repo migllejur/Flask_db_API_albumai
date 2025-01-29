@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const tbody = document.getElementById('albumai-body');
             tbody.innerHTML = '';
 
-            data.forEach(albumas => {
+            data.forEach(album => {
                 const tr = document.createElement('tr');
 
                 tr.innerHTML = `
