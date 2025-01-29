@@ -1,5 +1,5 @@
 from models import db, Albumai
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from serializers import AlbumasSchema
 from flask_cors import CORS
 
@@ -33,6 +33,11 @@ def api2_albumai():
     all_albums = Albumai.query.all()
     albums_data = [AlbumasSchema.model_validate(album).model_dump() for album in all_albums]
     return jsonify(albums_data)
+
+
+@app.route("/frontend")
+def frontend():
+    return render_template("albumai.html")
 
 
 if __name__ == "__main__":
