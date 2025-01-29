@@ -17,6 +17,20 @@ with app.app_context():
 @app.route("/api/albumai")
 def api_albumai():
     all_albums = Albumai.query.all()
+    albums_data = [{
+        "id": album.id,
+        "atlikejas": album.atlikejas,
+        "pavadinimas": album.pavadinimas,
+        "metai": album.metai,
+        "zanras": album.zanras,
+        "vidutine_kaina": album.kainu_vidurkis
+    } for album in all_albums]
+    return jsonify(albums_data)
+
+
+@app.route("/api2/albumai")
+def api2_albumai():
+    all_albums = Albumai.query.all()
     albums_data = [AlbumasSchema.model_validate(album).model_dump() for album in all_albums]
     return jsonify(albums_data)
 
