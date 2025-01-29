@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td>${album.pavadinimas}</td>
                     <td>${album.metai}</td>
                     <td>${album.zanras}</td>
-                    <td>${album.kainu_vidurkis}</td>
+                    <td>${album.vidutine_kaina}</td>
                 `;
 
                 tbody.appendChild(tr);
